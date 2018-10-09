@@ -26,21 +26,15 @@ void KalmanFilter::Init(VectorXd &x_in, MatrixXd &P_in, MatrixXd &F_in,
 }
 
 void KalmanFilter::Predict() {
-	/**
-	TODO:
-		* predict the state
-	*/
+	
 	x_ = F_ * x_;
 	MatrixXd Ft = F_.transpose();
 	P_ = F_ * P_ * Ft + Q_;
 }
 
 void KalmanFilter::Update(const VectorXd &z) {
+	
 	/**
-	TODO:
-		* update the state by using Kalman Filter equations
-	*/
-	/* 
 	 * x_(prediction) = [px, py, vx, vy]
 	 * H (Transition matrix) = [ 1,0,0,0
      *                           0,1,0,0 ] 
@@ -63,11 +57,8 @@ void KalmanFilter::Update(const VectorXd &z) {
 }
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {
+	
 	/**
-	TODO:
-		* update the state by using Extended Kalman Filter equations
-	*/
-	/*
 	 * x_(prediction) = [px, py, vx, vy]
 	 * h(x_) (Transition function) = [ sqrt(px^2+py^),
 	 *                                 arctan(py/px) ,
